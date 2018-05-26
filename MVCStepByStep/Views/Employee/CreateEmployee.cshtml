@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script>
+        function ResetForm() {
+            document.getElementById("txtFname").value = "";
+            document.getElementById("txtLname").value = "";
+            document.getElementById("txtSalary").value = "";
+        }
+    </script>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateEmployee</title>
+</head>
+<body>
+    <div>
+        <form action="/Employee/SaveEmployee" method="post">
+            <table>
+                
+                <tr>
+                    <td>FirstName</td>
+                    <td><input type="text" id="txtFname" name="FirstName" value="" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("FirstName")
+                    </td>
+                </tr>
+                <tr>
+                    <td>LastName</td>
+                    <td><input type="text" id="txtLname" name="LastName" value="" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        @Html.ValidationMessage("LastName")
+                    </td>
+                </tr>
+                <tr>
+                    <td>Salary</td>
+                    <td><input type="text" id="txtSalary" name="Salary" value="" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">@Html.ValidationMessage("Salary")</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="BtnSubmit" value="Save Employee" />
+                        <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
+                        <input type="submit" name="BtnSubmit" value="Cancel" />
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</body>
+</html>
